@@ -1,26 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: deployment
 spec: 
   selector: 
     matchLabels:
-      app: ashraf
+      app: "ashraf"
+      app1: "ahmed"
+      app2: "omar"
   replicas: 3
   template:
     metadata:
-      name: my-first-pod
+      name: my-pod
       labels:
-        app: ashraf
+        app: "ashraf"
+        app1: "ahmed"
+        app2: "omar"
     spec:
       containers: 
         - image: ashrafabdo02/project
           name: nginx-container
-          imagePullPolicy: IfNotPresent  # Corrected typo in imagePullPolicy
+          imagePullPolicy: IfNotPresent  
           resources:
             limits:
               memory: "512Mi"
               cpu: "1"
-            requests:  # Corrected typo in requests
+            requests:  
               memory: "100Mi"
-              cpu: "100m"  # Added CPU request example; adjust as needed
+              cpu: "100m"
